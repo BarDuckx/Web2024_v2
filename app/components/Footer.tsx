@@ -6,7 +6,6 @@ const Footer = () => {
     <footer className="w-full max-w-[1440px] mx-auto px-5 md:px-10 lg:px-[100px] pb-10 pt-10 md:pt-20 bg-dark-blue">
       <div className="flex flex-col lg:flex-row justify-between items-start mb-10 md:mb-20 gap-10 md:gap-16">
         
-        {/* Левая колонка */}
         <div className="w-full lg:max-w-[300px]">
           <h4 className="font-oceanic text-[24px] mb-6">МОРСКАЯ АТМОСФЕРА,<br/>ОБЪЕДИНЯЮЩАЯ ЛЮДЕЙ</h4>
           <div className="w-full h-[200px] bg-gray-700/50 rounded-md overflow-hidden relative group cursor-pointer">
@@ -14,9 +13,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Контакты и Навигация (на планшете в ряд, на телефоне в столбик) */}
         <div className="flex flex-col md:flex-row w-full justify-between gap-10">
-            {/* Контакты */}
             <div className="flex-1">
                <p className="font-gilroy text-[12px] opacity-50 mb-4 uppercase">Контакты:</p>
                <a href="tel:+79999999999" className="block font-gilroy text-[18px] mb-2 hover:text-aquarim-accent transition-colors">+7 (999) 999-99-99</a>
@@ -32,7 +29,6 @@ const Footer = () => {
                </div>
             </div>
 
-            {/* Ссылки */}
             <div className="flex gap-10 md:gap-20">
                 <div>
                     <p className="font-gilroy text-[12px] opacity-50 mb-6 uppercase">Меню</p>

@@ -2,10 +2,8 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    // Получаем данные из формы
     const { name, phone, email, comment } = await request.json();
     
-    // Формируем сообщение для Telegram
     const text = `
 🎉 Новая заявка!
 
@@ -17,7 +15,6 @@ export async function POST(request: Request) {
 ⏰ ${new Date().toLocaleString('ru-RU')}
     `;
     
-    // Отправляем в Telegram
     const response = await fetch(
       `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
       {

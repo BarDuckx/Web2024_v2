@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* -- ЦВЕТА -- */
   --color-dark-blue: #011845;
   --color-aquarim-blue: #4164AB;
   --color-aquarim-light-blue: #496192;
@@ -9,17 +8,14 @@
   --color-aquarim-accent: #FE6A3C;
   --color-aquarim-white-50: rgba(232, 237, 255, 0.5);
 
-  /* -- ШРИФТЫ -- */
   --font-oceanic: var(--font-oceanic), serif;
   --font-gilroy: var(--font-gilroy), sans-serif;
 
-  /* -- ЭКРАНЫ -- */
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1440px;
 }
 
-/* -- БАЗОВЫЕ СТИЛИ -- */
 :root {
   --background: var(--color-dark-blue);
   --foreground: var(--color-aquarim-text);
@@ -36,7 +32,6 @@ input, textarea, button {
   outline: none;
 }
 
-/* Скроллбар */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

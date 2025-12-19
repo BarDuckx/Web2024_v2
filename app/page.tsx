@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 
-// Данные для слайдера блюд
 const DISHES = [
     {
         id: 1,
@@ -27,7 +26,6 @@ const DISHES = [
     }
 ];
 
-// Компонент кнопки
 const Button = ({ children, variant = 'primary', className = '', ...props }: any) => {
     const baseStyle = "px-6 py-3 md:px-8 md:py-4 font-gilroy font-medium text-[16px] md:text-[24px] transition-all duration-300 active:scale-95 w-full md:w-auto";
     const styles = variant === 'primary' 
@@ -38,15 +36,12 @@ const Button = ({ children, variant = 'primary', className = '', ...props }: any
 };
 
 export default function Home() {
-    // --- STATE FORM ---
     const [form, setForm] = useState({ name: '', phone: '', email: '', comment: '' });
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
 
-    // --- STATE SLIDER ---
     const [currentDishIndex, setCurrentDishIndex] = useState(0);
 
-    // Логика слайдера
     const nextDish = () => {
         setCurrentDishIndex((prev) => (prev + 1) % DISHES.length);
     };
@@ -55,7 +50,6 @@ export default function Home() {
     };
     const currentDish = DISHES[currentDishIndex];
 
-    // Логика формы (ОРИГИНАЛЬНАЯ)
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
@@ -88,35 +82,28 @@ export default function Home() {
     return (
         <div className="w-full max-w-[1440px] px-5 md:px-10 xl:px-[100px] flex flex-col gap-20 md:gap-32 pb-20 overflow-hidden">
             
-            {/* --- HERO SECTION --- */}
             <section className="relative pt-10 text-center">
-                {/* Фоновый заголовок: используем clamp и vw для адаптации под 1024px */}
                 <h1 className="font-oceanic text-[60px] md:text-[140px] lg:text-[180px] xl:text-[256px] leading-[0.8] text-aquarim-light-blue opacity-20 select-none absolute top-10 md:top-0 left-1/2 -translate-x-1/2 w-full whitespace-nowrap z-0">
                     AQUARIM
                 </h1>
                 
                 <div className="relative z-10 mt-10 md:mt-20 flex flex-col items-center">
-                    {/* Заголовки и Креветка */}
                     <div className="flex flex-col md:flex-row justify-between items-center w-full mb-10 gap-4 md:gap-0">
-                        {/* LEFT TEXT */}
                         <span className="font-oceanic text-[40px] md:text-[50px] lg:text-[80px] uppercase tracking-widest w-full md:w-1/3 text-center md:text-left leading-none order-1">
                             РЫБНЫЙ
                         </span>
                         
-                        {/* CENTER IMAGE */}
                         <div className="w-[200px] h-[250px] md:w-[240px] md:h-[320px] lg:w-[300px] lg:h-[400px] md:-mt-20 z-20 mx-auto relative group order-2">
                             <div className="w-full h-full bg-contain bg-no-repeat bg-center transition-transform duration-500 group-hover:-translate-y-4"
                                 style={{backgroundImage: 'url(/images/shrimp.png)'}}>
                             </div>
                         </div>
 
-                        {/* RIGHT TEXT */}
                         <span className="font-oceanic text-[40px] md:text-[50px] lg:text-[80px] uppercase tracking-widest w-full md:w-1/3 text-center md:text-right leading-none order-3">
                             РЕСТОРАН
                         </span>
                     </div>
 
-                    {/* Description & Buttons */}
                     <div className="flex flex-col md:flex-row justify-between w-full items-start md:items-end gap-8 md:gap-0">
                         <div className="w-full md:w-1/3 text-center md:text-left flex flex-col items-center md:items-start">
                             <p className="font-gilroy text-[14px] opacity-70 mb-4 max-w-[250px] md:max-w-[200px]">
@@ -139,7 +126,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* --- HISTORY SECTION --- */}
             <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
                 <div className="order-2 md:order-1">
                     <div className="flex items-center gap-4 mb-6">
@@ -160,7 +146,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* --- FEATURED DISH SLIDER --- */}
             <section className="relative">
                 <div className="flex items-center gap-4 mb-10">
                     <span className="w-8 h-[1px] bg-aquarim-text"></span>
@@ -170,7 +155,6 @@ export default function Home() {
                 </div>
                 
                 <div className="bg-aquarim-blue/20 backdrop-blur-sm rounded-lg overflow-hidden flex flex-col md:flex-row min-h-auto md:min-h-[400px]">
-                    {/* Текст слайда */}
                     <div className="w-full md:w-1/2 p-8 md:p-10 lg:p-16 flex flex-col justify-center order-2 md:order-1 transition-opacity duration-300">
                         <h3 className="font-oceanic text-[28px] md:text-[36px] mb-4 uppercase">{currentDish.title}</h3>
                         <p className="font-gilroy text-[14px] opacity-70 mb-6 md:mb-8 max-w-sm min-h-[60px]">
@@ -182,11 +166,9 @@ export default function Home() {
                         </div>
                     </div>
                     
-                    {/* Картинка слайда */}
                     <div className="w-full md:w-1/2 h-[300px] md:h-auto relative bg-cover bg-center order-1 md:order-2 transition-all duration-300" 
                          style={{backgroundImage: `url(${currentDish.image})`}}>
                         
-                        {/* Кнопки навигации */}
                         <div className="absolute inset-0 flex items-center justify-between px-4">
                             <button 
                                 onClick={prevDish}
@@ -211,7 +193,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* --- DELIVERY SECTION --- */}
             <section>
                 <div className="flex items-center gap-4 mb-10">
                     <span className="w-8 h-[1px] bg-aquarim-text"></span>
@@ -247,25 +228,17 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* --- REVIEWS SECTION --- */}
             <section>
                 <div className="flex items-center gap-4 mb-10">
                     <span className="w-8 h-[1px] bg-aquarim-text"></span>
                     <h2 className="font-oceanic text-[32px] md:text-[40px] lg:text-[48px] leading-[1.05]">ОТЗЫВЫ</h2>
                 </div>
                 
-                {/* GRID FIX: 
-                   Mobile: flex + overflow-x-scroll (горизонтальный свайп как в сторис)
-                   Tablet (md): Grid 3 columns
-                   Desktop (lg): Grid 5 columns
-                */}
                 <div className="flex overflow-x-auto md:grid md:grid-cols-3 lg:grid-cols-5 gap-4 h-[250px] md:h-[200px] snap-x snap-mandatory pb-4 md:pb-0">
-                    {/* Блок со статистикой */}
                     <div className="bg-aquarim-accent p-6 flex flex-col justify-between min-w-[200px] w-full h-full snap-start rounded-lg md:rounded-none">
                         <p className="font-oceanic text-[24px]">БОЛЕЕ 1500<br/>ОТЗЫВОВ</p>
                         <div className="w-10 h-10 border border-white rounded-full flex items-center justify-center">↗</div>
                     </div>
-                    {/* Картинки */}
                     <div className="min-w-[200px] w-full h-full bg-cover bg-center snap-start rounded-lg md:rounded-none" style={{backgroundImage: 'url(/images/4.png)'}}></div>
                     <div className="min-w-[200px] w-full h-full bg-cover bg-center snap-start rounded-lg md:rounded-none" style={{backgroundImage: 'url(/images/5.png)'}}></div>
                     <div className="min-w-[200px] w-full h-full bg-cover bg-center snap-start rounded-lg md:rounded-none" style={{backgroundImage: 'url(/images/6.png)'}}></div>
@@ -273,7 +246,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* --- OFFERS SECTION --- */}
             <section>
                 <div className="flex items-center gap-4 mb-10">
                     <span className="w-8 h-[1px] bg-aquarim-text"></span>
@@ -295,7 +267,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* --- RESERVATION FORM --- */}
             <section>
                 <div className="flex items-center gap-4 mb-10">
                     <span className="w-8 h-[1px] bg-aquarim-text"></span>
@@ -303,7 +274,6 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-10">
-                    {/* Форма */}
                     <form onSubmit={handleSubmit} className="w-full md:w-1/2 space-y-6 md:space-y-8 mt-4 order-2 md:order-1">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                             <div className="flex flex-col gap-2">
@@ -373,7 +343,6 @@ export default function Home() {
                         </div>
                     </form>
 
-                    {/* Картинка */}
                     <div className="w-full md:w-1/2 flex flex-col gap-4 order-1 md:order-2">
                         <div className="h-[250px] md:h-[400px] w-full relative bg-cover bg-center rounded-lg md:rounded-none" style={{backgroundImage: 'url(/images/8.png)'}}>
                         </div>

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local"; // 1. Импортируем загрузчик
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-// 2. Настраиваем шрифт Oceanic
 const oceanic = localFont({
   src: [
     {
@@ -57,7 +56,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      {/* 4. ВАЖНО: Добавляем переменные шрифтов в className body */}
       <body className={`${oceanic.variable} ${gilroy.variable} bg-dark-blue text-aquarim-text antialiased`}>
         <Header />
         <main className="min-h-screen flex flex-col items-center w-full">
